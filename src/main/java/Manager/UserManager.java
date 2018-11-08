@@ -1,5 +1,6 @@
 package Manager;
 
+import Controller.Validation;
 import model.Compte;
 import model.User;
 
@@ -28,11 +29,26 @@ public class UserManager extends BaseManager{
                         "' and c.password='" + password + "'", User.class);
         User use = query.getSingleResult();
 
-        /*for(Compte iter:use.getComptes()){
-            System.out.println(iter);
-        }*/
-
         return use;
+    }
+
+    public static void changePassword(String password, String newPassword, String confirm, String userL){
+            EntityManager em = getEntityManager();
+            User user = em.find(User.class, userL);
+            String userLogin = user.getLogin();
+            String userPass = user.getPassword();
+
+            if(userPass.equals(password)){
+                if(!newPassword.equals(password)){
+                    if(newPassword.equals(confirm)){
+                        em.getTransaction().begin();
+                        em.createQuery("UPDATE User SET password = '" + newPassword + "' WHERE login='" + userLogin + "'").executeUpdate();
+                        em.getTransaction().commit();
+                    }
+                }
+
+            }
+
     }
 
 

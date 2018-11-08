@@ -80,7 +80,18 @@ class UserManagerTest {
 
         User user = new User();
         user = UserManager.loadUserByLoginAndPassword("test", "azerty");
-        System.out.println(user);
+
+    }
+
+    @Test
+    public void ChangePasswordByLogin(){
+
+        String login = "test";
+        String password = "";
+        String newPassword = "ytreza";
+        String confirm = "ytreza";
+
+        UserManager.changePassword( password, newPassword, confirm, login);
 
     }
 }

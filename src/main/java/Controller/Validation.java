@@ -6,7 +6,7 @@ public class Validation {
 
     public static boolean validatePassword(String newPassword) {
 
-        int min = 8;
+        int min = 6;
         int max = 16;
         int digit = 0;
         int special = 0;

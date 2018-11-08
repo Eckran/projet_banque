@@ -40,7 +40,6 @@ public class Login extends HttpServlet {
         User user = UserManager.loadUserByLoginAndPassword(login, password);
 
         if (user != null) {
-            System.out.println(user.toString());
             request.getSession().setAttribute("userCon", user);
             request.getSession().setMaxInactiveInterval(2*60);
             response.sendRedirect(request.getContextPath() + "/banque/comptes");

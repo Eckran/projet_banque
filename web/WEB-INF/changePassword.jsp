@@ -7,37 +7,54 @@
 
 <html>
 <head>
-    <title>Mes comptes</title>
+    <title>Title</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/leftNavigation.css" />
 </head>
 <body>
+
 <div class="container-fluid">
     <div class="row">
         <%@ include file="/WEB-INF/Element/leftNavigation.jsp" %>
 
         <div class="col-10">
-            <h1><fmt:message key="bienvenue"/> <c:out value="${userCon.getNom()}"/> <c:out
-                    value="${userCon.getPrenom()}"/> </b></h1>
-            <h3> vos comptes</h3>
 
-            <div class="container">
-                <div class="row">
-                        <c:forEach items="${comptes}" var="compte" varStatus="status">
-                            <div class="col-4">
-                                <p>id <c:out value="${compte.getId()}"/> : <c:out value="${compte.getSolde()}"/> €</p>
-                                <button><a href="/banque/transaction?id=${compte.getId()}">Details</a></button>
-                            </div>
-                        </c:forEach>
-                </div>
-            </div>
-
+            <form action="/banque/changePassword" method="post">
+                <table class="table table-user-information ">
+                    <tbody>
+                    <tr>
+                        <td>Mot de passe Actuel:</td>
+                        <td>
+                            <input icon="password-icon" name="currentPassword" type="password" focus/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Nouveau Mot De Passe:</td>
+                        <td>
+                            <Input icon="password-icon" name="newPassword" type="password"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Confirmation:</td>
+                        <td>
+                            <Input icon="password-icon" name="newConfirmPassword" type="password"/>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <input id="id" name="id" type="hidden" value="${userCon.getLogin()}">
+                <input id="pass" name="password" type="hidden" value="${userCon.getPassword()}">
+                <input type="submit" class="btn btn-primary btn-block" value="changer">
+            </form>
 
         </div>
-    </div>
 
+
+    </div>
 </div>
+
+
 
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
