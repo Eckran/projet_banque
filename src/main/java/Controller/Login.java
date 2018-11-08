@@ -26,13 +26,13 @@ public class Login extends HttpServlet {
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/userLogin.jsp");
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/userLogin.jsp");
         dispatcher.forward(request, response);
     }
 
     @Override
     public void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
-        RequestDispatcher loginDispatcher = getServletContext().getRequestDispatcher("/userLogin.jsp");
+        RequestDispatcher loginDispatcher = getServletContext().getRequestDispatcher("/WEB-INF/userLogin.jsp");
 
         String login = request.getParameter("login");
         String password = request.getParameter("password");

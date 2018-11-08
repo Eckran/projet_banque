@@ -9,7 +9,7 @@
     <title>Title</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="css/leftNavigation.css" />
+    <link rel="stylesheet" href="../css/leftNavigation.css" />
     <link rel="stylesheet" type="text/css" href="/css/transactionliste.css"/>
 </head>
 <body>
@@ -18,18 +18,22 @@
         <%@ include file="/WEB-INF/Element/leftNavigation.jsp" %>
 
         <div class="col-10">
-            <p>Liste des transactions</p>
-            <p> Compte n° <c:out value="${compte.getId()}" /></p>
-
-            <c:forEach items="${transactionList}" var="transaction" varStatus="status" >
-                <ul id="menu">
-                    <li>Le: <c:out value="${transaction.getString('date')}" /></li>
-                    <li><c:out value="${transaction.getString('libelle')}" /></li>
-                    <li><c:out value="${transaction.getString('montant')}"/></li>
-                </ul>
-            </c:forEach>
-
-
+            <h1 class="title">Liste des transactions</h1>
+            <h3 class="compte"> Compte n° <c:out value="${compte.getId()}" /></h3>
+            <table>
+                <tr class="tableTitle">
+                    <th>Date</th>
+                    <th>Libelle</th>
+                    <th>Montant</th>
+                </tr>
+                <c:forEach items="${transactionList}" var="transaction" varStatus="status" >
+                    <tr id="menu">
+                        <th class="date">Le: <c:out value="${transaction.getString('date')}" /></th>
+                        <th class="libelle"><c:out value="${transaction.getString('libelle')}" /></th>
+                        <th class="montant"><c:out value="${transaction.getString('montant')}"/> €</th>
+                    </tr>
+                </c:forEach>
+            </table>
         </div>
     </div>
 </div>

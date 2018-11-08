@@ -10,7 +10,8 @@
     <title>Mes comptes</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="../css/leftNavigation.css" />
+    <link rel="stylesheet" href="../css/leftNavigation.css" />
+    <link rel="stylesheet" href="../css/Compte.css" />
 </head>
 <body>
 <div class="container-fluid">
@@ -18,16 +19,18 @@
         <%@ include file="/WEB-INF/Element/leftNavigation.jsp" %>
 
         <div class="col-10">
-            <h1><fmt:message key="bienvenue"/> <c:out value="${userCon.getNom()}"/> <c:out
+            <h1 id="welcome"><fmt:message key="bienvenue"/> <c:out value="${userCon.getNom()}"/> <c:out
                     value="${userCon.getPrenom()}"/> </b></h1>
-            <h3> vos comptes</h3>
+            <h3 id="vosComptes"> vos comptes</h3>
 
             <div class="container">
                 <div class="row">
                         <c:forEach items="${comptes}" var="compte" varStatus="status">
                             <div class="col-4">
-                                <p>id <c:out value="${compte.getId()}"/> : <c:out value="${compte.getSolde()}"/> €</p>
-                                <button><a href="/banque/transaction?id=${compte.getId()}">Details</a></button>
+                                <div id="card">
+                                    <p>id <c:out value="${compte.getId()}"/> : <c:out value="${compte.getSolde()}"/> €</p>
+                                    <button id="button"><a href="/banque/transaction?id=${compte.getId()}">Details</a></button>
+                                </div>
                             </div>
                         </c:forEach>
                 </div>

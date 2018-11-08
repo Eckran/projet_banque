@@ -10,7 +10,8 @@
     <title>Title</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="css/leftNavigation.css" />
+    <link rel="stylesheet" href="../css/leftNavigation.css" />
+    <link rel="stylesheet" href="../css/changePassword.css" />
 </head>
 <body>
 
@@ -20,8 +21,10 @@
 
         <div class="col-10">
 
-            <form action="/banque/changePassword" method="post">
-                <table class="table table-user-information ">
+            <h1 class="title">Modifier mot de passe</h1>
+
+            <form class="formulaire" action="/banque/changePassword" method="post">
+                <table id="table" class="table table-user-information ">
                     <tbody>
                     <tr>
                         <td>Mot de passe Actuel:</td>
@@ -45,7 +48,7 @@
                 </table>
                 <input id="id" name="id" type="hidden" value="${userCon.getLogin()}">
                 <input id="pass" name="password" type="hidden" value="${userCon.getPassword()}">
-                <input type="submit" class="btn btn-primary btn-block" value="changer">
+                <input id="btn" type="submit" class="btn btn-primary btn-block" value="changer">
             </form>
 
         </div>

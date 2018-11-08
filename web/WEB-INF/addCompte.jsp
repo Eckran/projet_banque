@@ -11,7 +11,8 @@
     <title>Title</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="css/leftNavigation.css" />
+    <link rel="stylesheet" href="../css/leftNavigation.css" />
+    <link rel="stylesheet" href="../css/addCompte.css" />
 </head>
 <body>
 
@@ -21,7 +22,9 @@
             <%@ include file="/WEB-INF/Element/leftNavigation.jsp" %>
 
             <div class="col-10">
-                <form action="/banque/addCompte" method="post">
+                <h1 class="title">Ajouter un compte</h1>
+
+                <form class="formulaire" action="/banque/addCompte" method="post">
                     <table class="table table-user-information ">
                         <tbody>
                         <tr>
@@ -33,7 +36,7 @@
                         </tbody>
                     </table>
                     <input id="id" name="login" type="hidden" value="${userCon.getLogin()}">
-                    <input type="submit" class="btn btn-primary btn-block" value="créer">
+                    <input id="btn" type="submit" class="btn btn-primary btn-block" value="créer">
                 </form>
             </div>
         </div>

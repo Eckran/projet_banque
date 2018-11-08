@@ -27,7 +27,7 @@ public class listeCompte extends HttpServlet {
 
         request.setAttribute("comptes", comptes);
 
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/comptes.jsp");
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/comptes.jsp");
         dispatcher.forward(request, response);
     }
     public void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{

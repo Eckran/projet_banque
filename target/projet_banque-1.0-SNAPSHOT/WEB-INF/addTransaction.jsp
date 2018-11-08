@@ -4,6 +4,8 @@
     <title>Title</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/leftNavigation.css" />
+    <link rel="stylesheet" href="../css/addTransaction.css" />
 </head>
 <body>
 
@@ -12,12 +14,14 @@
         <%@ include file="/WEB-INF/Element/leftNavigation.jsp" %>
 
         <div class="col-10">
+            <h1 class="title"> Ajouter une transaction</h1>
+
             <div>
-                <form action="" method="POST">
-                    <input type="text" id="libelle" name="libelle" placeholder="libelle">
-                    <input type="number" id="montant" name="montant" placeholder="montant">
-                    <input type="number" id="compte" name="compte" placeholder="compte">
-                    <input type="submit" value="Send">
+                <form id="formulaire" action="" method="POST">
+                    <input class="input" type="text" id="libelle" name="libelle" placeholder="libelle"><br>
+                    <input class="input" type="number" id="montant" name="montant" placeholder="montant"><br>
+                    <input class="input" type="number" id="compte" name="compte" placeholder="compte"><br>
+                    <input class="input" type="submit" value="Send">
                 </form>
             </div>
         </div>
