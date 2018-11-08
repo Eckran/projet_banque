@@ -21,11 +21,11 @@
             <p>Liste des transactions</p>
             <p> Compte n° <c:out value="${compte.getId()}" /></p>
 
-            <c:forEach items="${transactions}" var="transaction" varStatus="status" >
+            <c:forEach items="${transactionList}" var="transaction" varStatus="status" >
                 <ul id="menu">
-                    <li>Le: <c:out value="${date}" /></li>
-                    <li><c:out value="${libelle}" /></li>
-                    <li><c:out value="${montant}"/></li>
+                    <li>Le: <c:out value="${transaction.getString('date')}" /></li>
+                    <li><c:out value="${transaction.getString('libelle')}" /></li>
+                    <li><c:out value="${transaction.getString('montant')}"/></li>
                 </ul>
             </c:forEach>
 

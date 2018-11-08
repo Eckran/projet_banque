@@ -9,25 +9,19 @@
 <head>
     <title>Title</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/css/login.css"/>
 </head>
 <body>
-<p><fmt:message key="bienvenue"/> </p>
-<div class="wrapper fadeInDown">
-    <div id="formContent">
-        <!-- Tabs Titles -->
-        <h2 class="active"><fmt:message key="login"/> </h2>
 
-        <!-- Login Form -->
-        <form action = "<%=request.getContextPath() + "/banque/userLogin" %>"  method = "POST">
-            <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
-            <input type="text" id="password" class="fadeIn third" name="password" placeholder="password">
-            <input type="submit" class="fadeIn fourth" value="Log In">
+<div class="login-page">
+    <div class="form">
+        <h2>Gary Banque</h2>
+        <form class="login-form" action = "<%=request.getContextPath() + "/banque/userLogin" %>"  method = "POST">
+            <input type="text" placeholder="username" name="login"/>
+            <input type="password" placeholder="password" name="password"/>
+            <input type="submit" value="Log In">
+            <p class="message">Not registered? <a href="#">Create an account</a></p>
         </form>
-
-        <!-- Remind Password -->
-        <div id="formFooter">
-            <a class="underlineHover" href="#">Forgot Password?</a>
-        </div>
     </div>
 </div>
 

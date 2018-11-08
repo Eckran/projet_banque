@@ -25,6 +25,8 @@ public class detailCompte extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
 
+        List<JSONObject> transactionList = new ArrayList<JSONObject>();
+
         String id = request.getParameter("id");
         OkHttpClient client = new OkHttpClient();
 
@@ -37,18 +39,13 @@ public class detailCompte extends HttpServlet {
         JSONObject tran = new JSONObject(data);
 
         JSONArray tranA = tran.getJSONArray("transaction");
-        List<Object> tranList = tranA.toList();
 
-        request.setAttribute("transactions", tranList);
-
-        for(int i = 0; i < tranList.size(); i++){
+        for(int i = 0; i < tranA.length(); i++){
 
             float montant = tranA.getJSONObject(i).getFloat("montant");
-            System.out.println(montant);
             String libelle = tranA.getJSONObject(i).getString("libelle");
             String date = tranA.getJSONObject(i).getString("date");
 
-            //float montant = Float.parseFloat(montantS);
             String montantS = Float.toString(montant);
 
             JSONObject jsonObj = new JSONObject();
@@ -57,15 +54,14 @@ public class detailCompte extends HttpServlet {
             jsonObj.put("date", date);
             jsonObj.put("montant", montantS);
 
-            System.out.println("The full created json object: " + jsonObj);
+            System.out.println("json Object: " + jsonObj);
 
             request.setAttribute("transactionO", jsonObj);
 
-            request.setAttribute("libelle", libelle);
-            request.setAttribute("date", date);
-            request.setAttribute("montant", montant);
+            transactionList.add(i, jsonObj);
 
-            System.out.println( "   " + libelle + "   " + date);
+            request.setAttribute("transactionList", transactionList);
+            System.out.println("transactionList: " + transactionList);
         }
 
         int idInt = Integer.parseInt(id);
