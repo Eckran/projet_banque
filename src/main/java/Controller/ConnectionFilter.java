@@ -15,7 +15,6 @@ public class ConnectionFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse res = (HttpServletResponse) response;
         HttpSession session = req.getSession(false);
-        //String loginURI = ServletHelper.getServletUrl(ServletHelper.SERVLET_LOGIN, req);
         String loginURI = req.getContextPath() + "/banque/userLogin";
 
         boolean loggedIn = session != null && session.getAttribute("userCon") != null;

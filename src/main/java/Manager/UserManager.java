@@ -1,7 +1,5 @@
 package Manager;
 
-import Controller.Validation;
-import model.Compte;
 import model.User;
 
 import javax.persistence.EntityManager;
@@ -14,12 +12,6 @@ public class UserManager extends BaseManager{
         em.getTransaction().begin();
         em.persist(user);
         em.getTransaction().commit();
-    }
-
-    public static User loadUserById(Integer userId) {
-        EntityManager em = getEntityManager();
-        User use = em.find(User.class, userId);
-        return use;
     }
 
     public static User loadUserByLoginAndPassword(String login, String password) {

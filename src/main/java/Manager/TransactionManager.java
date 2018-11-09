@@ -2,7 +2,6 @@ package Manager;
 
 import model.Compte;
 import model.Transaction;
-import model.User;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;

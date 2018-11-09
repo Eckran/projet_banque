@@ -54,21 +54,17 @@ public class detailCompte extends HttpServlet {
             jsonObj.put("date", date);
             jsonObj.put("montant", montantS);
 
-            System.out.println("json Object: " + jsonObj);
-
             request.setAttribute("transactionO", jsonObj);
 
             transactionList.add(i, jsonObj);
 
             request.setAttribute("transactionList", transactionList);
-            System.out.println("transactionList: " + transactionList);
         }
 
         int idInt = Integer.parseInt(id);
         Compte compte = CompteManager.loadCompteById(idInt);
 
         request.setAttribute("compte", compte);
-
 
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/detailCompte.jsp");
         dispatcher.forward(request, response);

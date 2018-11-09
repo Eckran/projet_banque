@@ -1,7 +1,6 @@
 package Controller;
 
 import Manager.CompteManager;
-import Manager.UserManager;
 import model.Compte;
 import model.User;
 
@@ -30,7 +29,6 @@ public class addCompte extends HttpServlet {
 
     @Override
     public void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/addCompte.jsp");
 
         String login = request.getParameter("login");
         EntityManager em = getEntityManager();
@@ -38,7 +36,6 @@ public class addCompte extends HttpServlet {
 
         String soldeS = request.getParameter("solde");
         float solde = Float.parseFloat(soldeS);
-
 
         Date date = new Date();
 
@@ -50,7 +47,6 @@ public class addCompte extends HttpServlet {
         if(newCompte != null){
             CompteManager.createNewCompte(newCompte);
         }
-
 
         response.sendRedirect(request.getContextPath() + "/banque/comptes");
     }

@@ -43,8 +43,6 @@ public class CompteManager extends BaseManager {
         em.getTransaction().begin();
         em.persist(compte);
         em.getTransaction().commit();
-
-        //TypedQuery<Compte> query = em.createQuery("INSERT INTO Compte VALUES compte");
     }
 
     public static void soldeUpdate(int compteId,int compteReceptionId, float montant) {
@@ -59,7 +57,6 @@ public class CompteManager extends BaseManager {
         float newSolde = solde - montant;
         float newSoldeReception = soldeReception + montant;
         System.out.println(newSolde);
-
 
         try {
             EntityManager em = getEntityManager();

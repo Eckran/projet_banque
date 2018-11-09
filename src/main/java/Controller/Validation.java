@@ -1,7 +1,5 @@
 package Controller;
 
-import java.util.Scanner;
-
 public class Validation {
 
     public static boolean validatePassword(String newPassword) {

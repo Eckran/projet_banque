@@ -65,8 +65,6 @@ public class TransactionR extends HttpServlet {
 
     public void doPost ( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
 
-        response.getWriter().println("123");
-
         Date date = new Date();
         String libelle = request.getParameter("libelle");
         String Smontant = request.getParameter("montant");
