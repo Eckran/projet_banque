@@ -33,13 +33,16 @@ public class addTransaction extends HttpServlet {
         String libelle = request.getParameter("libelle");
         String Smontant = request.getParameter("montant");
         String ScompteId = request.getParameter("compte");
+        String ScompteReceptionId = request.getParameter("compteR");
 
         float montant = Float.parseFloat(Smontant);
         int compteId = Integer.parseInt(ScompteId);
+        int compteReceptionId = Integer.parseInt(ScompteReceptionId);
 
         Compte compte = CompteManager.loadCompteById(compteId);
+        Compte compteReception = CompteManager.loadCompteById(compteReceptionId);
 
-        CompteManager.soldeUpdate(compteId, montant);
+        CompteManager.soldeUpdate(compteId, compteReceptionId, montant);
 
         System.out.println(libelle + "   " + montant + "   " + compte);
 

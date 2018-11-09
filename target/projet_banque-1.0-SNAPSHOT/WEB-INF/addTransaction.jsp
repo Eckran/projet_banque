@@ -20,7 +20,8 @@
                 <form id="formulaire" action="" method="POST">
                     <input class="input" type="text" id="libelle" name="libelle" placeholder="libelle"><br>
                     <input class="input" type="number" id="montant" name="montant" placeholder="montant"><br>
-                    <input class="input" type="number" id="compte" name="compte" placeholder="compte"><br>
+                    <input class="input" type="number" id="compte" name="compte" placeholder="compte envois"><br>
+                    <input class="input" type="number" id="compteR" name="compteR" placeholder="compte Reception"><br>
                     <input class="input" type="submit" value="Send">
                 </form>
             </div>

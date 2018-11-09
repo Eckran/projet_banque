@@ -37,14 +37,14 @@ class CompteManagerTest {
     public void transactionAjout() {
 
 
-        CompteManager.soldeUpdate( 3, 200);
+        CompteManager.soldeUpdate( 3, 4, 200);
 
     }
 
     @Test
     public void transactionDebit() {
 
-        CompteManager.soldeUpdate(3, -200);
+        CompteManager.soldeUpdate(3, 4, -200);
     }
 
 }

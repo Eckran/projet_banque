@@ -71,14 +71,18 @@ public class TransactionR extends HttpServlet {
         String libelle = request.getParameter("libelle");
         String Smontant = request.getParameter("montant");
         String ScompteId = request.getParameter("compte");
+        String ScompteReceptionId = request.getParameter("compteR");
 
         float montant = Float.parseFloat(Smontant);
         int compteId = Integer.parseInt(ScompteId);
+        int compteReceptionId = Integer.parseInt(ScompteReceptionId);
 
         Compte compte = CompteManager.loadCompteById(compteId);
+        Compte compteR = CompteManager.loadCompteById(compteReceptionId);
 
         try {
-            TransactionManager.addTransaction(montant, date, libelle, compte);
+            TransactionManager.addTransaction(-montant, date, libelle, compte);
+            TransactionManager.addTransaction(montant, date, libelle, compteR);
             response.sendRedirect(request.getContextPath() + "/banque/comptes");
         } catch (Exception e) {
             response.getWriter().println("error");
