@@ -6,6 +6,7 @@ import model.User;
 import org.junit.jupiter.api.Test;
 
 import java.util.Date;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -30,6 +31,20 @@ class CompteManagerTest {
         newCompte.setRomain(user);
 
         CompteManager.createNewCompte(newCompte);
+    }
+
+    @Test
+    public void transactionAjout() {
+
+
+        CompteManager.soldeUpdate( 3, 200);
+
+    }
+
+    @Test
+    public void transactionDebit() {
+
+        CompteManager.soldeUpdate(3, -200);
     }
 
 }

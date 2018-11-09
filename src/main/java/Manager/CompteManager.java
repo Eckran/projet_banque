@@ -46,4 +46,27 @@ public class CompteManager extends BaseManager {
 
         //TypedQuery<Compte> query = em.createQuery("INSERT INTO Compte VALUES compte");
     }
+
+    public static void soldeUpdate(int compteId, float montant) {
+
+        Compte compte = CompteManager.loadCompteById(compteId);
+        System.out.println(compte);
+
+        float solde = compte.getSolde();
+
+        float newSolde = solde + montant;
+        System.out.println(newSolde);
+
+
+        try {
+            EntityManager em = getEntityManager();
+            em.getTransaction().begin();
+            em.createQuery("UPDATE Compte SET solde= '"+ newSolde + "' WHERE id='" + compteId + "'").executeUpdate();
+            em.getTransaction().commit();
+
+        } catch (Exception var4){
+            System.out.println("error update solde");
+        }
+
+    }
 }

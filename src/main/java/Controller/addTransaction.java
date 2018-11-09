@@ -39,6 +39,8 @@ public class addTransaction extends HttpServlet {
 
         Compte compte = CompteManager.loadCompteById(compteId);
 
+        CompteManager.soldeUpdate(compteId, montant);
+
         System.out.println(libelle + "   " + montant + "   " + compte);
 
         ServletContext context = this.getServletContext();
